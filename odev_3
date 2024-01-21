@@ -1,0 +1,21 @@
+int toplam = 0;
+
+        Console.WriteLine("Sayıları girmeye başlayın. Toplamı bitirmek için 83 girin.");
+
+        while (true)
+        {
+            Console.Write("Sayı girin: ");
+            int girilenSayi;
+
+            if (int.TryParse(Console.ReadLine(), out girilenSayi))
+            {
+                if (girilenSayi == 83)
+                {
+                    break;
+                }
+                toplam += girilenSayi;
+            }
+          
+        }
+
+        Console.WriteLine("Toplam: " + toplam);
