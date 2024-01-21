@@ -1,0 +1,23 @@
+            Console.Write("Bir metin girin: ");
+            string metin = Console.ReadLine();
+
+            string kucukHarfMetin = ConvertToLowerCase(metin);
+            Console.WriteLine("Dönüştürülmüş metin: " + kucukHarfMetin);
+
+            Console.Write("Press any key to continue . . . ");
+            Console.ReadKey(true);
+        }
+
+        public static string ConvertToLowerCase(string input)
+        {
+            char[] chars = input.ToCharArray();
+
+            for (int i = 0; i < chars.Length; i++)
+            {
+                if (chars[i] >= 'A' && chars[i] <= 'Z')
+                {
+                    chars[i] = (char)(chars[i] + 32);
+                }
+            }
+
+            return new string(chars);
