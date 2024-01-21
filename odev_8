@@ -1,0 +1,34 @@
+using System;
+
+namespace or094 
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            Console.Write("Bir sayı girin: ");
+            int b = Convert.ToInt32(Console.ReadLine());
+
+            string sonuc = IsAsal(b) ? "Asal Sayı" : "Asal Sayı Değil";
+
+            Console.WriteLine($"{b} sayısı {sonuc}");
+
+            Console.Write("Devam etmek için bir tuşa basın. . . ");
+            Console.ReadKey(true);
+        }
+
+        static bool IsAsal(int sayi)
+        {
+            if (sayi < 2)
+                return false;
+
+            for (int i = 2; i <= Math.Sqrt(sayi); i++)
+            {
+                if (sayi % i == 0)
+                    return false;
+            }
+
+            return true;
+        }
+    }
+}
