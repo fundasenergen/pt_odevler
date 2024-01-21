@@ -1,0 +1,42 @@
+Console.Write("Boy (cm): ");
+        double boy = Convert.ToDouble(Console.ReadLine());
+
+        Console.Write("Kilo (kg): ");
+        double kilo = Convert.ToDouble(Console.ReadLine());
+
+        Console.Write("Cinsiyet (K/E): ");
+        char cinsiyet = Convert.ToChar(Console.ReadLine());
+
+        double idealKilo = HesaplaIdealKilo(boy, cinsiyet);
+
+        Console.WriteLine("İdeal Kilo: " + idealKilo + " kg");
+
+        if (kilo == idealKilo)
+        {
+            Console.WriteLine("Kilonuz idealdir.");
+        }
+        else if (kilo > idealKilo)
+        {
+            Console.WriteLine("Kilonuz ideal kilonuzdan fazladır.");
+        }
+        else
+        {
+            Console.WriteLine("Kilonuz ideal kilonuzdan azdır.");
+        }
+    }
+
+    static double HesaplaIdealKilo(double boy, char cinsiyet)
+    {
+        double idealKilo = 0;
+
+        if (cinsiyet == 'K' || cinsiyet == 'k')
+        {
+            // Kadınlar için 
+            idealKilo = 45.5 + 2.3 * ((boy / 2.54) - 60);
+        }
+        else if (cinsiyet == 'E' || cinsiyet == 'e')
+        {
+            // Erkekler için 
+            idealKilo = 50 + 2.3 * ((boy / 2.54) - 60);
+        }
+        return idealKilo;
