@@ -1,0 +1,51 @@
+using System;
+namespace or211 
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            int EnBuyuk = int.MinValue;
+            int EnDusuk = int.MaxValue;
+
+            string[] A = { "Emin", "Emir", "İclal", "Bekir", "Cem", "Arda", "Kaan", "Metin", "Can", "Ramiz" };
+            int[] B = { 56, 78, 95, 23, 95, 87, 61, 77, 45, 33 };
+
+            Console.WriteLine("Notları ve Adları:");
+
+            for (int c = 0; c < B.Length; c++)
+            {
+                Console.WriteLine($"{A[c]}: {B[c]}");
+
+                if (B[c] >= EnBuyuk)
+                {
+                    if (B[c] == EnBuyuk)
+                    {
+                        Console.WriteLine($"En Yüksek Notu Alan Kişi: {A[c]}");
+                    }
+                    else
+                    {
+                        EnBuyuk = B[c];
+                        Console.WriteLine($"Yeni En Yüksek Notu Alan Kişi: {A[c]}");
+                    }
+                }
+
+                if (B[c] <= EnDusuk)
+                {
+                    if (B[c] == EnDusuk)
+                    {
+                        Console.WriteLine($"En Düşük Notu Alan Kişi: {A[c]}");
+                    }
+                    else
+                    {
+                        EnDusuk = B[c];
+                        Console.WriteLine($"Yeni En Düşük Notu Alan Kişi: {A[c]}");
+                    }
+                }
+            }
+
+            Console.Write("Devam etmek için bir tuşa basın. . . ");
+            Console.ReadKey(true);
+        }
+    }
+}
