@@ -1,0 +1,24 @@
+Console.Write("İkili sayı girin: ");
+        string ikiliSayi = Console.ReadLine();
+
+        int onluDeger = IkiliToOnlu(ikiliSayi);
+
+        Console.WriteLine($"İkili (Binary) Sayı: {ikiliSayi}");
+        Console.WriteLine($"Onlu (Decimal) Sayı: {onluDeger}");
+
+        Console.ReadLine();
+    }
+
+    static int IkiliToOnlu(string ikiliSayi)
+    {
+        int onluDeger = 0;
+        int tabanDeger = 1;
+
+        for (int i = ikiliSayi.Length - 1; i >= 0; i--)
+        {
+            int basamakDeger = ikiliSayi[i] - '0';
+            onluDeger += basamakDeger * tabanDeger;
+            tabanDeger *= 2;
+        }
+
+        return onluDeger;
