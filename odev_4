@@ -1,0 +1,42 @@
+Console.Write("Bir sayı girin: ");
+        int girilenSayi;
+
+        
+        if (int.TryParse(Console.ReadLine(), out girilenSayi))
+        {
+            Console.Write("TEK veya ÇİFT tamsayılar ile işlem yapmak istiyor musunuz? (TEK/ÇİFT): ");
+            string islemTuru = Console.ReadLine().ToUpper();
+
+            if (islemTuru == "TEK")
+            {
+                Console.WriteLine("1 ile " + girilenSayi + " arasındaki TEK tamsayıların toplamı: " + ToplamTekSayilar(girilenSayi));
+            }
+            else if (islemTuru == "ÇİFT")
+            {
+                Console.WriteLine("1 ile " + girilenSayi + " arasındaki ÇİFT tamsayıların toplamı: " + ToplamCiftSayilar(girilenSayi));
+            }
+            
+    }
+
+    static int ToplamTekSayilar(int limit)
+    {
+        int toplam = 0;
+
+        for (int i = 1; i <= limit; i += 2)
+        {
+            toplam += i;
+        }
+
+        return toplam;
+    }
+
+    static int ToplamCiftSayilar(int limit)
+    {
+        int toplam = 0;
+
+        for (int i = 2; i <= limit; i += 2)
+        {
+            toplam += i;
+        }
+
+        return toplam;
