@@ -1,0 +1,102 @@
+Console.WriteLine("Araç Türünü Seçiniz: ");
+        Console.WriteLine("1. Otomobil");
+        Console.WriteLine("2. Kamyon");
+        Console.WriteLine("3. İş Makinası");
+
+        int aracTuru = Convert.ToInt32(Console.ReadLine());
+
+        Console.Write("Kalma Süresini Saat Olarak Giriniz: ");
+        int kalmaSuresi = Convert.ToInt32(Console.ReadLine());
+
+        double cikisUcreti = HesaplaCikisUcreti(aracTuru, kalmaSuresi);
+
+        Console.WriteLine("Çıkış Ücreti: " + cikisUcreti + " TL");
+    }
+
+    static double HesaplaCikisUcreti(int aracTuru, int kalmaSuresi)
+    {
+        double cikisUcreti = 0;
+
+        switch (aracTuru)
+        {
+            case 1: // Otomobil
+                cikisUcreti = HesaplaOtomobilUcreti(kalmaSuresi);
+                break;
+            case 2: // Kamyon
+                cikisUcreti = HesaplaKamyonUcreti(kalmaSuresi);
+                break;
+            case 3: // İş Makinası
+                cikisUcreti = HesaplaIsMakinasiUcreti(kalmaSuresi);
+                break;
+            default:
+                Console.WriteLine("Geçersiz araç türü!");
+                break;
+        }
+
+        return cikisUcreti;
+    }
+
+    static double HesaplaOtomobilUcreti(int kalmaSuresi)
+    {
+        double toplamUcret = 0;
+
+        // İlk 2 saat
+        if (kalmaSuresi <= 2)
+        {
+            toplamUcret = 5;
+        }
+        else
+        {
+            // 2 saatten sonraki saatler
+            toplamUcret = 5; // İlk 2 saat için 5 TL
+            kalmaSuresi -= 2;
+
+            // Sonraki saat başına 1 TL
+            toplamUcret += Math.Ceiling((double)kalmaSuresi / 1);
+        }
+
+        return toplamUcret;
+    }
+
+    static double HesaplaKamyonUcreti(int kalmaSuresi)
+    {
+        double toplamUcret = 0;
+
+        // İlk 2 saat
+        if (kalmaSuresi <= 2)
+        {
+            toplamUcret = 8;
+        }
+        else
+        {
+            // 2 saatten sonraki saatler
+            toplamUcret = 8; // İlk 2 saat için 8 TL
+            kalmaSuresi -= 2;
+
+            // Sonraki saat başına 2 TL
+            toplamUcret += Math.Ceiling((double)kalmaSuresi / 2);
+        }
+
+        return toplamUcret;
+    }
+
+    static double HesaplaIsMakinasiUcreti(int kalmaSuresi)
+    {
+        double toplamUcret = 0;
+
+        // İlk 2 saat
+        if (kalmaSuresi <= 2)
+        {
+            toplamUcret = 12;
+        }
+        else
+        {
+            // 2 saatten sonraki saatler
+            toplamUcret = 12; // İlk 2 saat için 12 TL
+            kalmaSuresi -= 2;
+
+            // Sonraki saat başına 3 TL
+            toplamUcret += Math.Ceiling((double)kalmaSuresi / 3); //ücreti yuvarla
+        }
+
+        return toplamUcret;
