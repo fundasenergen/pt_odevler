@@ -1,0 +1,51 @@
+Console.Write("İlk sayıyı girin: ");
+        int ilkSayi = Convert.ToInt32(Console.ReadLine());
+
+        Console.Write("İkinci sayıyı girin: ");
+        int ikinciSayi = Convert.ToInt32(Console.ReadLine());
+
+        Console.Write("TEK'leri mi ÇİFT'leri mi toplamak istersiniz? (TEK/ÇİFT): ");
+        string islemTuru = Console.ReadLine().ToUpper();
+
+        if (islemTuru == "TEK")
+        {
+            Console.WriteLine($"{ilkSayi} ile {ikinciSayi} arasındaki TEK tamsayıların toplamı: {ToplamTekSayilar(ilkSayi, ikinciSayi)}");
+        }
+        else if (islemTuru == "ÇİFT")
+        {
+            Console.WriteLine($"{ilkSayi} ile {ikinciSayi} arasındaki ÇİFT tamsayıların toplamı: {ToplamCiftSayilar(ilkSayi, ikinciSayi)}");
+        }
+        else
+        {
+            Console.WriteLine("Geçersiz işlem türü. Lütfen TEK veya ÇİFT girin.");
+        }
+    }
+
+    static int ToplamTekSayilar(int baslangic, int bitis)
+    {
+        int toplam = 0;
+
+        for (int i = baslangic; i <= bitis; i++)
+        {
+            if (i % 2 != 0)
+            {
+                toplam += i;
+            }
+        }
+
+        return toplam;
+    }
+
+    static int ToplamCiftSayilar(int baslangic, int bitis)
+    {
+        int toplam = 0;
+
+        for (int i = baslangic; i <= bitis; i++)
+        {
+            if (i % 2 == 0)
+            {
+                toplam += i;
+            }
+        }
+
+        return toplam;
